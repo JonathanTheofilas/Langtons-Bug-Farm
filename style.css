@@ -1,0 +1,133 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.simulation-container {
+    flex-grow: 1;
+}
+
+canvas {
+    background-color: #000;
+    border: 1px solid #444;
+    display: block; /* Removes bottom margin */
+}
+
+#control-panel {
+    width: 350px;
+    flex-shrink: 0;
+    background-color: #282828;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    height: fit-content;
+    max-height: 90vh; /* Set a max height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+#global-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+#global-controls button {
+    padding: 8px 16px;
+    font-size: 1em;
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#global-controls button:hover {
+    background-color: #444;
+}
+
+#global-controls label {
+    font-size: 1em;
+}
+
+#speedRange {
+    width: 100%;
+    cursor: pointer;
+}
+
+#antToggles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ant-toggle-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.ant-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ant-header label {
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ant-header input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.ant-header input[type="number"] {
+    width: 60px;
+    margin-left: auto;
+    background-color: #444;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.ant-rules {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #555;
+    display: inline-block;
+    vertical-align: middle;
+}
