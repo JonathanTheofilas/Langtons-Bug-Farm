@@ -1,6 +1,6 @@
-# Langton's Vibers: Advanced Cellular Automata Playground
+# Langton's Bug Farm: Advanced Cellular Automata Playground
 
-**Langton's Vibers** is an interactive, visual simulation of various cellular automata, including Langton's Ant, Turmites, and other Turing machines. Explore and experiment with multiple automaton types in a shared environment, each featuring customisable rules, behaviors, and controls.
+**Langton's Bug Farm** is an interactive, visual simulation of various cellular automata, including Langton's Ant, Turmites, and other Turing machines. Explore and experiment with multiple automaton types in a shared environment, each featuring customisable rules, behaviors, and controls.
 
 ---
 
