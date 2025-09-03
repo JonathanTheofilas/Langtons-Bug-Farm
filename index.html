@@ -3,30 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Langton's Bug Farm</title>
+    <title>Langton's Bug Farm - Cellular Automata Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-container">
-        <div class="simulation-container">
-            <h1>Langton's Vibers</h1>
-            <canvas id="antCanvas"></canvas>
-        </div>
-        <div id="control-panel">
-            <h3>Controls</h3>
-            <div id="global-controls">
-                <button id="startPauseBtn">Pause</button>
-                <button id="resetBtn">Reset</button>
-                <div>
-                    <label for="speedRange">Speed:</label>
-                    <input type="range" id="speedRange" min="1" max="200" value="50">
+    <div class="container">
+        <header>
+            <h1>Langton's Bug Farm</h1>
+            <p class="subtitle">Cellular Automata Simulator</p>
+        </header>
+        
+        <div class="main-layout">
+            <div class="canvas-container">
+                <canvas id="antCanvas"></canvas>
+                <div class="statistics">
+                    <div class="stat">
+                        <span class="stat-label">Steps</span>
+                        <span class="stat-value" id="stepCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Active</span>
+                        <span class="stat-value" id="activeCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">FPS</span>
+                        <span class="stat-value" id="fpsCount">60</span>
+                    </div>
                 </div>
             </div>
-            <hr>
-            <h3>Machine Controls & Rules</h3>
-            <div id="antToggles"></div>
+            
+            <aside class="control-panel">
+                <section class="control-section">
+                    <h2>Simulation</h2>
+                    <div class="button-row">
+                        <button id="startPauseBtn" class="btn btn-primary">Pause</button>
+                        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="speedRange">
+                            Speed
+                            <span class="value" id="speedValue">50</span>
+                        </label>
+                        <input type="range" id="speedRange" min="1" max="200" value="50">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="gridSizeRange">
+                            Cell Size
+                            <span class="value" id="gridSizeValue">4px</span>
+                        </label>
+                        <input type="range" id="gridSizeRange" min="2" max="8" value="4">
+                    </div>
+                </section>
+                
+                <section class="control-section">
+                    <h2>Environment</h2>
+                    <div class="env-grid">
+                        <button class="btn btn-env" id="addRocks">Rocks</button>
+                        <button class="btn btn-env" id="addMaze">Maze</button>
+                        <button class="btn btn-env" id="addFood">Food</button>
+                        <button class="btn btn-env" id="clearEnv">Clear</button>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="densityRange">
+                            Density
+                            <span class="value" id="densityValue">10%</span>
+                        </label>
+                        <input type="range" id="densityRange" min="0" max="30" value="10">
+                    </div>
+                </section>
+                
+                <section class="control-section">
+                    <h2>Machines</h2>
+                    <button id="addMachineBtn" class="btn btn-primary full-width">Add Custom Machine</button>
+                    <div id="machineList" class="machine-list"></div>
+                </section>
+            </aside>
         </div>
     </div>
+    
+    <!-- Machine Editor Modal -->
+    <div id="machineModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Machine Configuration</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modalName">Name</label>
+                    <input type="text" id="modalName" placeholder="Custom Machine">
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalType">Type</label>
+                    <select id="modalType">
+                        <option value="ant">Ant</option>
+                        <option value="turmite">Turmite</option>
+                        <option value="dragonfly">Dragonfly</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalColors">Colors (comma-separated hex)</label>
+                    <input type="text" id="modalColors" placeholder="#000000, #FFFFFF">
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalRules">
+                        Rules
+                        <span class="help-text" id="rulesHelp">For Ant: "RL" or "RLL"</span>
+                    </label>
+                    <textarea id="modalRules" rows="4" placeholder='For Ant: "RL" or "RLL"&#10;For Turmite: {"0": [[1, 1, 0], [2, -1, 1]]}'></textarea>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button id="modalSave" class="btn btn-primary">Save</button>
+                <button id="modalCancel" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
